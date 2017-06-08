@@ -1,0 +1,24 @@
+{ 
+  "version": "1.0.0-*", 
+  "buildOptions": { 
+    "debugType": "portable", 
+    "emitEntryPoint": true 
+  }, 
+  "dependencies": { 
+    "Microsoft.Azure.Management.Monitor": "0.16.0.0-preview",
+    "Microsoft.Rest.ClientRuntime": "2.3.5",
+    "Microsoft.Rest.ClientRuntime.Azure": "3.3.5",
+    "Microsoft.Rest.ClientRuntime.Azure.Authentication": "2.2.9-preview"
+  }, 
+  "frameworks": { 
+    "netcoreapp1.0": { 
+      "dependencies": { 
+        "Microsoft.NETCore.App": { 
+          "type": "platform", 
+          "version": "1.0.0" 
+        } 
+      }, 
+      "imports": "dnxcore50" 
+    } 
+  } 
+} 
