@@ -23,7 +23,7 @@ This sample explains how to retrieve Monitor metrics and metric definitions usin
 1. Clone the repository.
 
     ```
-    git clone https://github.com/Azure-Samples/monitor-metrics-dotnet.git
+    git clone https://github.com/Azure-Samples/monitor-dotnet-metrics-api.git
     ```
 
 1. Install the dependencies.
