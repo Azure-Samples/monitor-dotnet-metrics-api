@@ -77,7 +77,7 @@ IEnumerable<MetricDefinition> metricDefinitions = await readOnlyClient.MetricDef
 or using a filter
 
 ```csharp
-var odataFilterMetricDef = new ODataQuery<MetricDefinition>("names eq 'CpuPercentage'");
+var odataFilterMetricDef = new ODataQuery<MetricDefinition>("name.value eq 'CpuPercentage'");
 metricDefinitions = await readOnlyClient.MetricDefinitions.ListAsync(resourceUri: resourceUri, odataQuery: odataFilterMetricDef, cancellationToken: new CancellationToken());
 ```
 

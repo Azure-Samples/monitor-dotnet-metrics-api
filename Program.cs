@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 // Azure Management dependencies
 using Microsoft.Rest.Azure.Authentication;
 using Microsoft.Rest.Azure.OData;
+
+// These examples correspond to the Monitor .Net SDK versions 0.16.0-preview, 0.16.1-preview
+// Those versions include the single-dimensional metrics API.
 using Microsoft.Azure.Management.Monitor;
 using Microsoft.Azure.Management.Monitor.Models;
 
@@ -60,7 +63,8 @@ namespace AzureMonitorCSharpExamples
             IEnumerable<MetricDefinition> metricDefinitions = await readOnlyClient.MetricDefinitions.ListAsync(resourceUri: resourceUri, cancellationToken: new CancellationToken());
             EnumerateMetricDefinitions(metricDefinitions);
 
-            var odataFilterMetricDef = new ODataQuery<MetricDefinition>("names eq 'CpuPercentage'");
+            // The $filter can contain a propositional logic expression, specifically, a disjunction of the format: name.value eq '<mericName>' or name.value eq '<metricName>' ...
+            var odataFilterMetricDef = new ODataQuery<MetricDefinition>("name.value eq 'CpuPercentage'");
             metricDefinitions = await readOnlyClient.MetricDefinitions.ListAsync(resourceUri: resourceUri, odataQuery: odataFilterMetricDef, cancellationToken: new CancellationToken());
 
             EnumerateMetricDefinitions(metricDefinitions);
@@ -72,13 +76,13 @@ namespace AzureMonitorCSharpExamples
             IEnumerable<Metric> metrics = await readOnlyClient.Metrics.ListAsync(resourceUri: resourceUri, cancellationToken: CancellationToken.None);
             EnumerateMetrics(metrics);
 
-            // The comma-separated list of metric names must be present if a filter is used
-            var metricNames = "name.value eq 'CpuPercentage'"; // could be concatenated with " or name.value eq '<another name>'" ...
+            // The $filter can contain a propositional logic expression, specifically, a disjunction of the format: [(]name.value eq '<mericName>' or name.value eq '<metricName>' ...[)]
+            var metricNames = "name.value eq 'CpuPercentage'"; // could be concatenated with " or name.value eq '<another name>'" ... inside parentheses for more than one name.
 
-            // Time grain is optional when metricNames is present
+            // The $filter can include time grain, which is optional when metricNames is present. The is forms a conjunction with the list of metric names described above.
             string timeGrain = " and timeGrain eq duration'PT5M'";
 
-            // Defaulting to 3 hours before the time of execution for these datetimes
+            // The $filter can also include a time range for the query; also a conjunction with the list of metrics and/or the time grain. Defaulting to 3 hours before the time of execution for these datetimes
             string startDate = string.Format(" and startTime eq {0}", DateTime.Now.AddHours(-3).ToString("o"));
             string endDate = string.Format(" and endTime eq {0}", DateTime.Now.ToString("o"));
 
