@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using Microsoft.Rest.Azure.Authentication;
 using Microsoft.Rest.Azure.OData;
 
-// These examples correspond to the Monitor .Net SDK versions 0.16.0-preview, 0.16.1-preview
+// These examples correspond to the Monitor .Net SDK versions 0.16.0-preview and 0.16.1-preview
 // Those versions include the single-dimensional metrics API.
 using Microsoft.Azure.Management.Monitor;
 using Microsoft.Azure.Management.Monitor.Models;
