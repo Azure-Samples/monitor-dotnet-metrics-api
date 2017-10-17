@@ -5,9 +5,9 @@
     "emitEntryPoint": true 
   }, 
   "dependencies": { 
-    "Microsoft.Azure.Management.Monitor": "0.16.0.0-preview",
-    "Microsoft.Rest.ClientRuntime": "2.3.5",
-    "Microsoft.Rest.ClientRuntime.Azure": "3.3.5",
+    "Microsoft.Azure.Management.Monitor": "0.16.1.0-preview",
+    "Microsoft.Rest.ClientRuntime": "2.3.9",
+    "Microsoft.Rest.ClientRuntime.Azure": "3.3.9",
     "Microsoft.Rest.ClientRuntime.Azure.Authentication": "2.2.9-preview"
   }, 
   "frameworks": { 

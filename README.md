@@ -41,7 +41,7 @@ This sample explains how to retrieve Monitor metrics and metric definitions usin
     [PowerShell](https://azure.microsoft.com/documentation/articles/resource-group-authenticate-service-principal/)
     or [the portal](https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/).
 
-1. Export these environment variables using your subscription id and the tenant id, client id and client secret from the service principle that you created. 
+1. Export these environment variables using your subscription id and the tenant id, client id and client secret from the service principal that you created. 
 
     ```
     export AZURE_TENANT_ID={your tenant id}
@@ -53,7 +53,7 @@ This sample explains how to retrieve Monitor metrics and metric definitions usin
 1. Run the sample.
 
     ```
-    dotnet run resourceId
+    dotnet run program
     ```
 
 <a id="example"></a>
