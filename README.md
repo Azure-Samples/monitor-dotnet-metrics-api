@@ -1,7 +1,11 @@
 ---
-services: azure-monitor
-platforms: dotnet
-author: gucalder
+page_type: sample
+languages:
+- csharp
+products:
+- azure
+description: "This sample explains how to retrieve Monitor metrics and metric definitions using the Azure .NET SDK releases 0.16.0-preview and 0.16.1-preview."
+urlFragment: monitor-dotnet-metrics-api
 ---
 
 # Retrieve Azure Monitor metrics with .NET
