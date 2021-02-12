@@ -63,7 +63,7 @@ namespace AzureMonitorCSharpExamples
             IEnumerable<MetricDefinition> metricDefinitions = await readOnlyClient.MetricDefinitions.ListAsync(resourceUri: resourceUri, cancellationToken: new CancellationToken());
             EnumerateMetricDefinitions(metricDefinitions);
 
-            // The $filter can contain a propositional logic expression, specifically, a disjunction of the format: name.value eq '<mericName>' or name.value eq '<metricName>' ...
+            // The $filter can contain a propositional logic expression, specifically, a disjunction of the format: name.value eq '<metricName>' or name.value eq '<metricName>' ...
             var odataFilterMetricDef = new ODataQuery<MetricDefinition>("name.value eq 'CpuPercentage'");
             metricDefinitions = await readOnlyClient.MetricDefinitions.ListAsync(resourceUri: resourceUri, odataQuery: odataFilterMetricDef, cancellationToken: new CancellationToken());
 
